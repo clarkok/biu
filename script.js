@@ -13,8 +13,6 @@ class AnimatedValue {
     }
 
     AnimateTo(value, duration, delay = 0, easing = null) {
-        if (!this.ended) {
-        }
         this.startValue = this.value;
         this.goal = value;
         this.startTime = (AnimatedValue.__lastTick || Date.now()) + delay;
