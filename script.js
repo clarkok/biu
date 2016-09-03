@@ -55,8 +55,8 @@ class AnimatedValue {
     }
 
     AnimatedValue.easeOut = function (t) {
-        t = t - 1;
-        return -(t * t * t - 1);
+        t = 1 - t;
+        return 1 - t * t * t;
     }
 
     AnimatedValue.__lastTick = 0;
@@ -314,8 +314,8 @@ class Biu {
     }
 
     LookTo(x, y, duration = 100, delay = 0) {
-        this.lookAt.x.AnimateTo(x, duration, delay);
-        this.lookAt.y.AnimateTo(y, duration, delay);
+        this.lookAt.x.AnimateTo(x, duration, delay, AnimatedValue.easeOut);
+        this.lookAt.y.AnimateTo(y, duration, delay, AnimatedValue.easeOut);
     }
 }
 
